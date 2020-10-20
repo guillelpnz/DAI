@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello_world():
   return 'Hello, World!'
 
-#Ejercicio 2
+# Ejercicio 2
 @app.route('/ordena/<lista>')
 def ordena(lista):
   return bubbleSort(lista)+selectionSort(lista)
@@ -53,7 +53,7 @@ def selectionSort(lista):
   cadena+="</h2>"
   return cadena
 
-#Ejercicio 3
+# Ejercicio 3
 @app.route('/eratostenes/<int:n>')
 def SieveOfEratosthenes(n): 
   prime = [True for i in range(n+1)] 
@@ -64,9 +64,30 @@ def SieveOfEratosthenes(n):
         prime[i] = False
     p += 1
   cadena = "<h1>Números primos hasta "+str(n)+"</h1>"
-  for p in range(0,n): 
-    if prime[p]: 
+  for p in range(0,n):
+    if prime[p]:
       cadena += str(p)+", "
 
   cadena = cadena[:-2]
   return cadena
+
+# Ejercicio 4
+@app.route('/fibonacci')
+def ejercicioFibonacci():
+  f = open("entrada.txt","r")
+  n = int(f.read())
+  numFinal = fibonacci(n)
+  outF = open("salida.txt", "w")
+  outF.write(str(numFinal))
+  return "<h1>Progresion de fibonacci</h1>"+"<h2>Revisa el archivo salida.txt</h2>"
+
+def fibonacci(n):
+  if n<=0:
+    print("Incorrect input")
+  elif n==1:
+    return 0
+  elif n==2:
+    return 1
+  else:
+    return fibonacci(n-1)+fibonacci(n-2)
+
