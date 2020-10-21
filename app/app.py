@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 app = Flask(__name__)
 
 import ejercicio2 as ej2
@@ -20,7 +20,7 @@ def ejercicio2(lista):
 # Ejercicio 3
 @app.route('/eratostenes/<int:n>')
 def ejercicio3(n):
-  return ej3.SieveOfEratosthenes
+  return ej3.SieveOfEratosthenes(n)
 
 # Ejercicio 4
 @app.route('/fibonacci/<int:n>')
@@ -38,3 +38,10 @@ def ejercicio5(cadena):
 @app.route('/ejercicio6/<frase>')
 def ejercicio6(frase):
   return ej6.reconocimiento(frase)
+
+@app.errorhandler(404)
+def noExistePagina(error):
+  return "<h1>La página que intentas buscar no existe</h1>"
+
+with app.test_request_context():
+  print(url_for('static', filename='index.html'))
