@@ -6,6 +6,7 @@ import ejercicio3 as ej3
 import ejercicio4 as ej4
 import ejercicio5 as ej5
 import ejercicio6 as ej6
+import opcional as op
 
 @app.route('/')
 
@@ -42,6 +43,10 @@ def ejercicio6(frase):
 @app.errorhandler(404)
 def noExistePagina(error):
   return "<h1>La página que intentas buscar no existe</h1>"
+
+@app.route('/svg')
+def opcional():
+  return op.generarFigura()
 
 with app.test_request_context():
   print(url_for('static', filename='index.html'))
