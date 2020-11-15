@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="mt-4 container d-flex justify-content-center">
+    <h1 id="h1-registro">Reconocimiento de cadenas</h1>
+</div>
+  <ul id="ej6">
+      <li>Introduzca:</li>
+      <li>Una palabra seguida de un espacio y una letra mayúscula</li>
+      <li>o una dirección de correo válida</li>
+      <li>o un número de tarjeta de crédito separado por espacios o guiones</li>
+  </ul>
+  <div class="container d-flex justify-content-center">
+    <form class="col-6" method="POST">
+        <div class="form-group">
+         <input type="text" name="cadena" class="form-control mt-3" placeholder="Introduzca una cadena">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        {% if mensaje != "La cadena no coincide con ninguna de las opciones" and mensaje != ""%}
+        <div class="alert alert-success mt-3" role="alert">
+          {{ mensaje }}
+        </div>
+        {% elif mensaje != ""%}
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ mensaje }}
+        </div>
+        {% endif %}
+    </form>
+
+  </div>
+
+{% endblock %}

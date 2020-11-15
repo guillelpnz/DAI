@@ -1,6 +1,6 @@
 def ejercicioFibonacci(n):
-  cadena = "<h1>Sucesión de Fibonacci</h1>"
-  cadena += "El número en la posición "+str(n)+" de la sucesión es: "
+  n = int(n)
+  cadena = "El número en la posición "+str(n)+" de la sucesión es: "
   cadena += str(fibonacci(n))
   return cadena
 

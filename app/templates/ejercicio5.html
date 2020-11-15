@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="mt-4 container d-flex justify-content-center">
+    <h1 id="h1-registro">Paréntesis balanceados</h1>
+</div>
+  <div class="container d-flex justify-content-center">
+    <form class="col-6" method="POST">
+        <div class="form-group">
+        <input type="text" name="cadena" class="form-control mt-3" placeholder="Introduzca una cadena de paréntesis">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        {% if mensaje == "¡Sí están balanceados!" %}
+        <div class="alert alert-success mt-3" role="alert">
+          {{ mensaje }}
+        </div>
+        {% elif mensaje == "¡No están balanceados!" %}
+        <div class="alert alert-danger mt-3" role="alert">
+          {{ mensaje }}
+        </div>
+        {% endif %}
+    </form>
+
+  </div>
+</div>
+{% endblock %}

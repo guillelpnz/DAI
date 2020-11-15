@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="mt-4 container d-flex justify-content-center">
+    <h1 id="h1-registro">Adivinaré un número del 1 al 100</h1>
+</div>
+  <div class="container d-flex justify-content-center">
+    <form class="col-6" method="POST">
+        <div class="form-group">
+        <input type="number" name="n" class="form-control mt-3" placeholder="Introduzca un numero del 1 al 100">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        {% if mensaje == "Error"%}
+        <div class="alert alert-danger mt-3" role="alert">
+          Debe introducir un numero entre el 1 y el 100
+        </div>
+        {% elif mensaje == "¡Has acertado!"%}
+        <div class="alert alert-success mt-3" role="alert">
+            {{mensaje}}
+        </div>
+        {% elif mensaje != ""%}
+        <div class="alert alert-primary mt-3" role="alert">
+          {{ mensaje }}
+        </div>
+        {% endif %}
+    </form>
+
+  </div>
+
+{% endblock %}

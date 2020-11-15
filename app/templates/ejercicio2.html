@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="mt-5 container d-flex justify-content-center">
+    <h1 id="h1-registro">Introduzca una lista desordenada de numeros separados por espacios</h1>
+</div>
+  <div class="container d-flex justify-content-center">
+    <form class="col-6" method="POST">
+        <div class="form-group">
+        <input type="text" name="lista" class="form-control mt-3" placeholder="Lista desordenada">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        {% if mensaje1 != "" %}
+        <div class="alert alert-primary mt-3" role="alert">
+          {{mensaje1}}
+        </div>
+        {% endif %}
+        {% if mensaje2 != "" %}
+        <div class="alert alert-success mt-3" role="alert">
+          {{mensaje2}}
+        </div>
+        {% endif %}
+    </form>
+
+  </div>
+
+{% endblock %}

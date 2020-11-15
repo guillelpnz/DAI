@@ -1,5 +1,4 @@
 def balanceados(cadena):
-  pantalla = "<h1>¿Están los corchetes balanceados?</h1>"
   open_list = ["[","{","("] 
   close_list = ["]","}",")"] 
   stack = [] 
@@ -12,8 +11,8 @@ def balanceados(cadena):
         (open_list[pos] == stack[len(stack)-1])): 
         stack.pop() 
       else: 
-        return pantalla+"¡No lo están!"
+        return "¡No están balanceados!"
   if len(stack) == 0: 
-      return pantalla+"¡Sí lo están!"
+    return "¡Sí están balanceados!"
   else: 
-      return pantalla+"¡No lo están!"
+    return "¡No están balanceados!"
